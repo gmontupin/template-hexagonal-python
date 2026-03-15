@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "template-arquitectura-hexagonal"
-version = "0.1.1"
+version = "0.1.2"
 description = "Template base para microservicios con Arquitectura Hexagonal y Python"
 authors = ["Gustavo Montupin Villanueva <gmontupin@gmail.com>"]
 license = "MIT"
