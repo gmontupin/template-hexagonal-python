@@ -1,0 +1,9 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "python",
+      "package-name": "template-hexagonal-python",
+      "changelog-notes-language": "es"
+    }
+  }
+}
