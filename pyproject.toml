@@ -5,6 +5,7 @@ description = "Template base para microservicios con Arquitectura Hexagonal y Py
 authors = ["Gustavo Montupin Villanueva <gmontupin@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
