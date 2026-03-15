@@ -1,5 +1,3 @@
-# 🏗️ Plantilla base para Microservicios con Arquitectura Hexagonal y Automatización de Releases.
-
 ## 🎯 Objetivo
 
 Este proyecto sirve como **Golden Template** para el desarrollo de microservicios robustos en Python. Implementa el patrón de **Arquitectura Hexagonal (Puertos y Adaptadores)** para asegurar que la lógica de negocio permanezca aislada de las dependencias externas (GCP, APIs de terceros, Bases de datos).
