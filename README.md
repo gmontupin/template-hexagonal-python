@@ -1,27 +1,82 @@
-# [Nombre del Proyecto]
+# 🏗️ Plantilla base para Microservicios con Arquitectura Hexagonal y Automatización de Releases.
 
-Microservicio base para [Descripción breve]
+## 🎯 Objetivo
 
-## 🏗️ Arquitectura
+Este proyecto sirve como **Golden Template** para el desarrollo de microservicios robustos en Python. Implementa el patrón de **Arquitectura Hexagonal (Puertos y Adaptadores)** para asegurar que la lógica de negocio permanezca aislada de las dependencias externas (GCP, APIs de terceros, Bases de datos).
 
-Este proyecto sigue el patrón de **Arquitectura Hexagonal (Ports & Adapters)**, diseñado para garantizar:
+## 🛠️ Guía de Inicio Rápido (Setup)
 
-- **Desacoplamiento:** Lógica de negocio pura independiente de infraestructura.
-- **Testeabilidad:** Alta cobertura de pruebas mediante `pytest`.
-- **Escalabilidad:** Configurado para despliegues Serverless (GCP Cloud Functions).
+Sigue estos pasos para configurar tu entorno de desarrollo profesional en menos de 5 minutos:
 
-## 🚀 Setup
+### 1. Requisitos previos
 
-1. **Instalación:** `mise install`
-2. **Dependencias:** `poetry install`
-3. **Desarrollo:** `poetry shell`
+- [mise](https://mise.jdx.dev/): Para gestionar versiones de herramientas (Python).
+- [Poetry](https://python-poetry.org/): Para gestión de dependencias y entornos virtuales.
 
-## 🛠️ Herramientas
+### 2. Configuración inicial
 
-- **Linter/Formateo:** `ruff check src/`, `black src/`
-- **QA:** `pytest tests/`
+Clona el repositorio e inicializa el entorno:
 
-## 🛡️ Estándares
+```bash
+# Instalar herramientas de entorno
+mise install
 
-- **Conventional Commits:** `feat`, `fix`, `chore`, `test`.
-- **Seguridad:** Los secretos están bloqueados por `.gitignore` estricto.
+# Instalar dependencias del proyecto
+poetry install
+
+# Activar el entorno virtual
+poetry shell
+
+```
+
+### 3. Calidad de Código (QA)
+
+Antes de cada commit, asegúrate de cumplir con los estándares de calidad del proyecto:
+
+- **Formateo:** `poetry run black src/`
+- **Análisis estático:** `poetry run ruff check src/ --fix`
+- **Pruebas:** `poetry run pytest tests/`
+
+---
+
+## 🤖 Automatización y Releases
+
+Este repositorio incluye **`release-please`** configurado para automatizar el ciclo de vida del software.
+
+### Ciclo de vida:
+
+1. **Desarrollo:** Realiza tus commits siguiendo [Conventional Commits](https://www.conventionalcommits.org/es/v1.0.0/).
+2. **Push:** Al subir cambios a la rama `master`, el sistema detectará nuevas funcionalidades (`feat:`) o arreglos (`fix:`).
+3. **Pull Request:** Se generará automáticamente una PR llamada _"chore: release vX.Y.Z"_ que incluye el **CHANGELOG** en español.
+4. **Publicación:** Al hacer _merge_ de esa PR, se creará el Tag y el Release en GitHub automáticamente.
+
+---
+
+## 📂 Estructura del Proyecto
+
+```text
+.
+├── .github/          # Configuración de CI/CD (release-please)
+├── .vscode/          # Configuración recomendada para VS Code
+├── src/
+│   ├── domain/       # Lógica de negocio pura (Entidades y Puertos)
+│   ├── application/  # Casos de uso
+│   └── infrastructure/# Adaptadores (Implementaciones de puertos)
+├── tests/            # Suite de pruebas unitarias e integración
+├── pyproject.toml    # Gestión de dependencias (Poetry)
+└── README.md
+
+```
+
+---
+
+## 🔒 Consideraciones de Seguridad
+
+- **Nunca** subas archivos `.env`, llaves de servicio (`*.json`) o secretos al repositorio.
+- Utiliza variables de entorno para configurar las credenciales en GCP Secret Manager.
+
+---
+
+## 📜 Licencia
+
+Este proyecto se distribuye bajo la licencia **MIT**.
