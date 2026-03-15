@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-azuretools.vscode-docker",
+    "hashicorp.terraform",
+    "redhat.vscode-yaml",
+    "sonarsource.sonarlint-vscode",
+    "esbenp.prettier-vscode",
+    "ms-playwright.playwright"
+  ]
+}
