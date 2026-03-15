@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.2.0](https://github.com/gmontupin/template-hexagonal-python/compare/poc-lectura-datos-v0.1.2...poc-lectura-datos-v0.2.0) (2026-03-15)
+
+
+### Nuevas Funcionalidades
+
+* actualizacion CI sin Test Aun. ([9d40a46](https://github.com/gmontupin/template-hexagonal-python/commit/9d40a46bf16c9c98a209d4afdbb19e22a72a1c81))
+* actualizacion CI sin Test Aun. ([2b519d7](https://github.com/gmontupin/template-hexagonal-python/commit/2b519d76f7c12cd489cc95d6ad8b3628cf37c645))
+* actualizacion dependencias poetry ([04fbf4b](https://github.com/gmontupin/template-hexagonal-python/commit/04fbf4bc5e69001e22438730542f2cd07b8bcf36))
+* actualizacion dependencias/configuracion poetry ([8b46b79](https://github.com/gmontupin/template-hexagonal-python/commit/8b46b79233000f9134f0ad22172b2da77b798388))
+* implementar pre-commit, CI pipeline y dependabot ([ea7dde4](https://github.com/gmontupin/template-hexagonal-python/commit/ea7dde4e11e81e36108badb530c65ce9c1fa0f07))
+* implementar pre-commit, CI pipeline y dependabot ([acb0804](https://github.com/gmontupin/template-hexagonal-python/commit/acb0804554f4f0a614f9aa3653f286ed34cc690b))
+
+
+### Tareas de Infraestructura
+
+* anclar carpeta tests vacía con .gitkeep ([551be37](https://github.com/gmontupin/template-hexagonal-python/commit/551be37322d7f7215ff7170b02a2698806628d91))
+
 ## [0.1.2](https://github.com/gmontupin/template-hexagonal-python/compare/poc-lectura-datos-v0.1.1...poc-lectura-datos-v0.1.2) (2026-03-15)
 
 
