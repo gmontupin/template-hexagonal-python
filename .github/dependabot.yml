@@ -1,13 +1,11 @@
 version: 2
 updates:
-  - package-ecosystem: "poetry" # <--- Aquí estaba el cambio clave
+  - package-ecosystem: "pip" # Dependabot usa 'pip' para manejar pyproject.toml
     directory: "/"
     schedule:
       interval: "weekly"
-    # Opcional: Para agrupar todas las actualizaciones en una sola PR y no saturar
-    groups:
-      all-dependencies:
-        patterns: ["*"]
+    # Esto le dice a Dependabot que busque pyproject.toml y poetry.lock
+    versioning-strategy: "lockfile-only"
 
   - package-ecosystem: "github-actions"
     directory: "/"

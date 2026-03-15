@@ -1,52 +1,65 @@
 ## 🎯 Objetivo
 
-Este proyecto sirve como **Golden Template** para el desarrollo de microservicios robustos en Python. Implementa el patrón de **Arquitectura Hexagonal (Puertos y Adaptadores)** para asegurar que la lógica de negocio permanezca aislada de las dependencias externas (GCP, APIs de terceros, Bases de datos).
+Este repositorio es un **Golden Template** diseñado para estandarizar el desarrollo de microservicios robustos en Python. Implementa el patrón de **Arquitectura Hexagonal (Puertos y Adaptadores)** para asegurar que la lógica de negocio permanezca pura, desacoplada de frameworks, bases de datos o servicios de terceros (GCP, APIs, etc.).
 
-## 🛠️ Guía de Inicio Rápido (Setup)
-
-Sigue estos pasos para configurar tu entorno de desarrollo profesional en menos de 5 minutos:
-
-### 1. Requisitos previos
-
-- [mise](https://mise.jdx.dev/): Para gestionar versiones de herramientas (Python).
-- [Poetry](https://python-poetry.org/): Para gestión de dependencias y entornos virtuales.
-
-### 2. Configuración inicial
-
-Clona el repositorio e inicializa el entorno:
-
-```bash
-# Instalar herramientas de entorno
-mise install
-
-# Instalar dependencias del proyecto
-poetry install
-
-# Activar el entorno virtual
-poetry shell
-
-```
-
-### 3. Calidad de Código (QA)
-
-Antes de cada commit, asegúrate de cumplir con los estándares de calidad del proyecto:
-
-- **Formateo:** `poetry run black src/`
-- **Análisis estático:** `poetry run ruff check src/ --fix`
-- **Pruebas:** `poetry run pytest tests/`
+> **Arquitectura Hexagonal | CI/CD Automatizado | Calidad Garantizada**
 
 ---
 
-## 🤖 Automatización y Releases
+## 🚀 Setup Profesional
 
-Este repositorio incluye **`release-please`** configurado para automatizar el ciclo de vida del software.
+Sigue estos pasos para preparar tu entorno de desarrollo en menos de 5 minutos:
 
-### Ciclo de vida:
+### 1. Requisitos previos
 
-1. **Desarrollo:** Realiza tus commits siguiendo [Conventional Commits](https://www.conventionalcommits.org/es/v1.0.0/).
-2. **Push:** Al subir cambios a la rama `master`, el sistema detectará nuevas funcionalidades (`feat:`) o arreglos (`fix:`).
-3. **Pull Request:** Se generará automáticamente una PR llamada _"chore: release vX.Y.Z"_ que incluye el **CHANGELOG** en español.
-4. **Publicación:** Al hacer _merge_ de esa PR, se creará el Tag y el Release en GitHub automáticamente.
+- [mise](https://mise.jdx.dev/): Gestor de versiones de herramientas.
+- [Poetry](https://python-poetry.org/): Gestión de dependencias y empaquetado.
+
+### 2. Inicialización
+
+```bash
+# Instalar herramientas de entorno y dependencias
+mise install
+poetry install
+
+# Activar el "Centinela" de calidad local (Hooks)
+pre-commit install
+
+```
+
+---
+
+## 🛡️ Estándares de Ingeniería y Calidad (QA)
+
+La calidad no es opcional. El proyecto incluye validación obligatoria antes de cada `commit` mediante `pre-commit`:
+
+- **Formateo automático:** Se aplica `ruff format` para asegurar estilo consistente.
+- **Linter de alto rendimiento:** `ruff` detecta errores de sintaxis y deuda técnica en cada archivo.
+- **Seguridad:** Los hooks de `pre-commit` detectan automáticamente la inclusión de claves privadas o archivos confidenciales, impidiendo su subida al repositorio.
+
+---
+
+## 🤖 Automatización y Ciclo de Vida (CI/CD)
+
+Este template cuenta con una infraestructura de automatización completa:
+
+### 1. CI Pipeline (`.github/workflows/ci.yml`)
+
+En cada `Push` o `Pull Request`, el sistema ejecuta automáticamente:
+
+- Validación de estilo con `ruff`.
+- Suite de pruebas unitarias y de integración con `pytest`.
+
+### 2. Gestión de Releases (`release-please`)
+
+Utilizamos **Semantic Versioning** automatizado:
+
+- **Conventional Commits:** Usa `feat:`, `fix:`, o `chore:` en tus mensajes.
+- **Pull Request de Versión:** Al mergear a `master`, se genera automáticamente una PR de liberación con un `CHANGELOG.md` en español generado dinámicamente.
+
+### 3. Mantenimiento de Seguridad (`Dependabot`)
+
+El bot de Dependabot monitorea tus dependencias de `poetry` semanalmente, proponiendo PRs automáticas para aplicar parches de seguridad y actualizaciones de versiones.
 
 ---
 
@@ -54,14 +67,14 @@ Este repositorio incluye **`release-please`** configurado para automatizar el ci
 
 ```text
 .
-├── .github/          # Configuración de CI/CD (release-please)
-├── .vscode/          # Configuración recomendada para VS Code
+├── .github/                  # Automatización CI/CD, Releases y Dependabot
+├── .pre-commit-config.yaml   # Configuración de los ganchos de calidad
 ├── src/
-│   ├── domain/       # Lógica de negocio pura (Entidades y Puertos)
-│   ├── application/  # Casos de uso
-│   └── infrastructure/# Adaptadores (Implementaciones de puertos)
-├── tests/            # Suite de pruebas unitarias e integración
-├── pyproject.toml    # Gestión de dependencias (Poetry)
+│   ├── domain/               # Lógica de negocio pura (Entidades y Puertos)
+│   ├── application/          # Casos de uso
+│   └── infrastructure/       # Adaptadores (Implementaciones reales)
+├── tests/                    # Suite de pruebas unitarias e integración
+├── pyproject.toml            # Gestión de dependencias (Poetry)
 └── README.md
 
 ```
@@ -70,8 +83,9 @@ Este repositorio incluye **`release-please`** configurado para automatizar el ci
 
 ## 🔒 Consideraciones de Seguridad
 
-- **Nunca** subas archivos `.env`, llaves de servicio (`*.json`) o secretos al repositorio.
-- Utiliza variables de entorno para configurar las credenciales en GCP Secret Manager.
+- **Confidencialidad:** Nunca subas archivos `.env`, llaves JSON de GCP o secretos al repositorio.
+- **Secret Manager:** Utiliza variables de entorno para inyectar configuraciones desde GCP Secret Manager u otros bóvedas de secretos.
+- **Pre-commit:** El hook `detect-private-key` actuará como tu última línea de defensa antes de cada `push`.
 
 ---
 
